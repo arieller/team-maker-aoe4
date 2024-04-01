@@ -113,22 +113,6 @@ const getMatchups = () => {
   return { isCalculationValid: true, matchups, tracker };
 };
 
-let stop = false;
-let count = 0;
-
-do {
-  const { isCalculationValid, matchups, tracker } = getMatchups();
-
-  if (isCalculationValid) {
-    console.log("matchups", matchups, matchups?.length);
-    console.log("tracker", tracker, values(tracker).length);
-    stop = true;
-  } else {
-    count++;
-
-    if (count % 10000 === 0) {
-      console.log("matchups", matchups, matchups?.length);
-      console.log("tracker", tracker, values(tracker).length);
-    }
-  }
-} while (!stop);
+const { matchups, tracker } = getMatchups();
+console.log("matchups", matchups, matchups?.length);
+console.log("tracker", tracker, values(tracker).length);
